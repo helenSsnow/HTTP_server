@@ -1,9 +1,19 @@
 # webserv
 
--> git branch -a # какие ветки существуют -> git branch -v # показать список веток и последний коммит в каждой -> git branch <branch_new_name> 5589877 # создать новую ветку с указанным именем на указанном коммите -> git checkout <branch_name> # перейти на указанную ветку -> git add -> git commit -m "..." -> git push origin <branch_name> -> git pull
+Перед вами представлен проект HTTP сервер
 
-git branch new_branch # создать новую ветку с указанным именем на текущем коммите git branch new_branch 5589877 # создать новую ветку с указанным именем на указанном коммите
 
-git checkout new_branch # перейти в указанную ветку git checkout -b new_branch # создать новую ветку с указанным именем и перейти в неё
 
-https://github.com/nicothin/web-development/tree/master/git
+Описание: Перед вами представлен проект HTTP сервер, за основу проекта взят сервер Nginx.
+          Проект написан в соответствии со стандартом C++98 и совместимый с RFC 7230 и RFC 7235.
+          Сервер поддерживает методы такие как - GET - PUT - HEAD - POST - DELETE
+
+BUILD : $> make
+
+USAGE : $> ./webserv [multiServer.conf]
+
+НАСТРОЙКА ФАЙЛА КОНФИГУРАЦИИ :  
+Файл конфигурации соответствует базовому синтаксису серверных блоков nginx с некоторыми упрощениями : 
+         Нет объявлений основных контекстов (http, main, события).
+         Сервер принимает весь файл конфигурации за контекст http. Вы можете объявлять только блоки "server" и их вложенные блоки "location".
+         Поддерживает только следующие директивы : - server_name - listen - root - index - error_page - max_body - authentication - autoindex - method - cgi - redirect
